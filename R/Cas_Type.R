@@ -3671,7 +3671,7 @@ CaSilico=function(ResultsFolder="CaSilico_output",
                         s_blast_result=blast_result[blast_result$V1==unique(blast_result$V1)[blast_crRNA_predict],]
                         for (gene in 1:length(s_blast_result$V2))  {
                           s_blast_result_gene=s_blast_result[gene,]
-                          pos_mismach_blast_crRNA_gene=which(strsplit(s_blast_result_gene$V3,split = "")[[1]]!=strsplit(s_blast_result_gene$V4,split = "")[[1]])
+                          pos_mismach_blast_crRNA_gene=which(strsplit(as.character(s_blast_result_gene$V3),split = "")[[1]]!=strsplit(as.character(s_blast_result_gene$V4),split = "")[[1]])
                           #pam mismatch checked
                           if (any(pos_mismach_blast_crRNA_gene%in%0:length_pam_cas)!=TRUE) {
 
